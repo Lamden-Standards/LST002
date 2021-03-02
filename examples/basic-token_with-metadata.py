@@ -5,9 +5,9 @@ balances = Hash(default_value=0)
 meta = Hash()
 
 @construct
-def seed(vk: str):
-    # LST001
-    balances[vk] = 1_000_000
+def seed():
+    # LST001 - MINT SUPPLY to wallet that submits the contract
+    balances[ctx.caller] = 1_000_000
 
     # LST002
     meta['token_name'] = "TEST TOKEN"
@@ -32,20 +32,9 @@ def transfer(amount: float, to: str):
 
 # LST001
 @export
-def balance_of(account: str):
-    return balances[account]
-
-# LST001
-@export
-def allowance(owner: str, spender: str):
-    return balances[owner, spender]
-
-# LST001
-@export
 def approve(amount: float, to: str):
     assert amount > 0, 'Cannot send negative balances!'
     balances[ctx.caller, to] += amount
-    return balances[ctx.caller, to]
 
 # LST001
 @export
