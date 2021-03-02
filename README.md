@@ -1,4 +1,4 @@
-# LST002 - Adding Metadata to Smart Contracts
+# LST002 - Adding Metadata to Smart Contracts v1.0 (approved)
 Not all smart contracts require metadata but there are some types, particularly tokens, that would benefit from some discoverable properties located on the blockchain.
 This is not an attempt to standardize any one type of contract metadata but merely an effort to define variables and methods that can be used to do so.
 
