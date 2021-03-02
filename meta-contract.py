@@ -1,18 +1,18 @@
 # Required
-meta = Hash()
+metadata = Hash()
 
 @construct
 def seed(vk: str):
-    #Define meta values
-    meta['key1'] = 'some value'
-    meta['key2'] = 'some value'
-    meta['key3'] = 'some value'
+    #Define metadata values
+    metadata['key1'] = 'some value'
+    metadata['key2'] = 'some value'
+    metadata['key3'] = 'some value'
 
-    # Optional: needed if meta values are intended to be mutable
-    meta['operator'] = vk
+    # Optional: needed if metadata values are intended to be mutable
+    metadata['operator'] = vk
 
-# Optional: needed if meta values are intended to be mutable
+# Optional: needed if metadata values are intended to be mutable
 @export
 def change_meta(key: str, value: Any):
-    assert ctx.caller == meta['operator'], 'Only operator can set meta!'
-    meta[key] = value
+    assert ctx.caller == metadata['operator'], 'Only operator can set metadata!'
+    metadata[key] = value

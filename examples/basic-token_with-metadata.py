@@ -2,7 +2,7 @@
 balances = Hash(default_value=0)
 
 # LST002
-meta = Hash()
+metadata = Hash()
 
 @construct
 def seed():
@@ -10,16 +10,16 @@ def seed():
     balances[ctx.caller] = 1_000_000
 
     # LST002
-    meta['token_name'] = "TEST TOKEN"
-    meta['token_symbol'] = "TST"
-    meta['token_logo_url'] = 'https://some.token.url/test-token.png'
-    meta['operator'] = vk
+    metadata['token_name'] = "TEST TOKEN"
+    metadata['token_symbol'] = "TST"
+    metadata['token_logo_url'] = 'https://some.token.url/test-token.png'
+    metadata['operator'] = vk
 
 # LST002
 @export
-def change_meta(key: str, value: Any):
-    assert ctx.caller == meta['operator'], 'Only operator can set meta!'
-    meta[key] = value
+def change_metadata(key: str, value: Any):
+    assert ctx.caller == metadata['operator'], 'Only operator can set metadata!'
+    metadata[key] = value
 
 # LST001
 @export
