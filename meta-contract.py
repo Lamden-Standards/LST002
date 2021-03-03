@@ -2,14 +2,14 @@
 metadata = Hash()
 
 @construct
-def seed(vk: str):
+def seed():
     #Define metadata values
     metadata['key1'] = 'some value'
     metadata['key2'] = 'some value'
     metadata['key3'] = 'some value'
 
     # Optional: needed if metadata values are intended to be mutable
-    metadata['operator'] = vk
+    metadata['operator'] = ctx.caller # sets operator to the submitter of the contract 
 
 # Optional: needed if metadata values are intended to be mutable
 @export

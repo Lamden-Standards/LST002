@@ -24,18 +24,15 @@ In cases where that is the intention it is required that an `operator` be set in
 - Public: `False` 
 - Required: `False`
     - only needed to allow metadata to be mutable
-- arguments:
-    - `vk`
-        - type: `string`
-        - description: An account to grant the ability to change values in the `metadata` Hash
+- arguments: `none`
 - state changes: `1`
 - assertions: `none`
 - return: `void`
 
 ``` python
 @construct
-def seed(vk: str):
-    metadata['operator'] = vk
+def seed():
+    metadata['operator'] = ctx.caller
 ```
 
 ### **change_meta**

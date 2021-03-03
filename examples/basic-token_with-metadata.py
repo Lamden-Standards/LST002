@@ -13,7 +13,7 @@ def seed():
     metadata['token_name'] = "TEST TOKEN"
     metadata['token_symbol'] = "TST"
     metadata['token_logo_url'] = 'https://some.token.url/test-token.png'
-    metadata['operator'] = vk
+    metadata['operator'] = ctx.caller
 
 # LST002
 @export
